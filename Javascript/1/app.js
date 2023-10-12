@@ -10,6 +10,8 @@ submitButton.addEventListener('click',() => {
         alert("Enter some text to reverse")
     }
 });
+
+
  function reverseWords(inputText) {
     const words = inputText.split(" ");
     const reversedWords = words.map(word => word.split('').reverse().join(''));     
