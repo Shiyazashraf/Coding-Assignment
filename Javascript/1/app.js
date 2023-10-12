@@ -1,12 +1,17 @@
-let reverseText = document.querySelector('#revtext');
-const revButton = document.querySelector('#reverseButton');
+const reversedText = document.querySelector('#revtext');
+const submitButton = document.querySelector('#reverseButton');
 
-revButton.addEventListener('click',() => {
+submitButton.addEventListener('click',() => {
     let inputText = document.getElementById('rev').value;
     if (inputText){
-        reverseText.textContent = ` ${inputText.split('').reverse().join('')}`
+        reversedText.textContent = ` ${reverseWords(inputText)}`
     }
     else {
         alert("Enter some text to reverse")
     }
 });
+ function reverseWords(inputText) {
+    const words = inputText.split(" ");
+    const reversedWords = words.map(word => word.split('').reverse().join(''));     
+    return reversedWords.join(' ');
+ }
