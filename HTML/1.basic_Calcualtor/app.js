@@ -51,6 +51,15 @@
             this.operator = undefined;
             this.update();
         },
+        operation: function(operation) {
+            if (this.currentOperand == '') return;
+            if (this.prevOperand != '') {
+                this.compute();
+            }
+            this.operator = operation;
+            this.prevOperand = this.currentOperand;
+            this.currentOperand = '';
+        },
         append : function(number) {
             if (number === '.' && this.currentOperand.includes('.')) return;
             else this.currentOperand = this.currentOperand.toString() + number.toString();
@@ -88,16 +97,8 @@
             this.currentOperand = result;
             this.operator = undefined;
             this.prevOperand = '';
-        },
-        operation: function(operation) {
-            if (this.currentOperand == '') return;
-            if (this.prevOperand != '') {
-                this.compute();
-            }
-            this.operator = operation;
-            this.prevOperand = this.currentOperand;
-            this.currentOperand = '';
         }
+        
     }
     calculator.init();
 })();
